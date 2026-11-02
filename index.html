@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wahda Real Estate — Property for sale and rent across Australia</title>
+<meta name="description" content="Verified property listings across Australia. Search houses and apartments for sale or rent by suburb, postcode or state, with Sharia-compliant home finance.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wahda Real Estate — Find a home that fits your life">
+<meta property="og:description" content="Verified listings, honest prices and Sharia-compliant finance. Now across Australia.">
+<meta property="og:image" content="assets/wahda/web/hero.jpg">
+<meta name="theme-color" content="#0C4A3C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF8F2;
+  --paper-2:#F4EFE4;
+  --surface:#FFFFFF;
+  --ink:#121A16;
+  --ink-2:#3B463F;
+  --muted:#77807A;
+  --hair:#E5DFD0;
+  --hair-2:#D3CBB7;
+  --emerald:#0C4A3C;
+  --emerald-2:#146B56;
+  --emerald-soft:#E7F0EA;
+  --gold:#B08A3E;
+  --gold-soft:#F3E9D2;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Plus Jakarta Sans",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --r:16px;
+  --shadow-s:0 1px 2px rgba(18,26,22,.05),0 2px 8px rgba(18,26,22,.04);
+  --shadow-m:0 2px 6px rgba(18,26,22,.06),0 12px 32px -8px rgba(18,26,22,.14);
+  --shadow-l:0 4px 12px rgba(18,26,22,.06),0 32px 64px -16px rgba(18,26,22,.2);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+::selection{background:rgba(12,74,60,.14);color:var(--emerald)}
+:focus-visible{outline:2px solid var(--emerald-2);outline-offset:3px;border-radius:6px}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:15px;line-height:1.6;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;text-wrap:pretty;
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;padding:0;color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,calc(100% - 80px));margin:0 auto}
+@media(max-width:900px){.wrap{width:calc(100% - 40px)}}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:60;background:rgba(251,248,242,.86);
+  backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s
+}
+header.stuck{border-bottom-color:var(--hair);box-shadow:0 1px 0 rgba(18,26,22,.02),0 12px 24px -20px rgba(18,26,22,.3)}
+.nav{display:flex;align-items:center;gap:36px;height:78px}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.brand .mark{width:34px;height:34px;flex-shrink:0}
+.brand .txt{display:flex;flex-direction:column;line-height:1}
+.brand .txt b{font-family:var(--serif);font-size:23px;font-weight:400;letter-spacing:.12em;color:var(--emerald)}
+.brand .txt span{font-size:8.5px;letter-spacing:.34em;color:var(--muted);margin-top:4px;font-weight:600}
+nav.links{display:flex;gap:28px;margin-left:14px}
+nav.links a{font-size:14px;color:var(--ink-2);position:relative;padding:6px 0;font-weight:500}
+nav.links a:after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--emerald);transition:right .22s ease}
+nav.links a:hover:after{right:0}
+.nav .spacer{flex:1}
+.nav .util{display:flex;align-items:center;gap:18px}
+.icon-btn{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;color:var(--ink-2);font-weight:500}
+.icon-btn .badge{background:var(--emerald);color:#fff;font-size:10px;font-weight:700;border-radius:999px;padding:1px 6px;line-height:1.5}
+.signin{font-size:13.5px;font-weight:500;color:var(--ink-2)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:14px;
+  border-radius:999px;padding:12px 22px;transition:transform .16s ease,box-shadow .2s,background .2s;
+  white-space:nowrap
+}
+.btn-primary{background:var(--emerald);color:#fff;box-shadow:0 1px 2px rgba(12,74,60,.2)}
+.btn-primary:hover{background:#0A3F33;transform:translateY(-1px);box-shadow:0 8px 20px -8px rgba(12,74,60,.6)}
+.btn-ghost{border:1px solid var(--hair-2);color:var(--ink)}
+.btn-ghost:hover{background:#fff;border-color:var(--ink-2)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:54px 0 64px;overflow:hidden}
+.hero .pattern{position:absolute;inset:0;opacity:.5;pointer-events:none;
+  -webkit-mask-image:radial-gradient(60% 70% at 30% 30%,#000 0%,transparent 78%);
+  mask-image:radial-gradient(60% 70% at 30% 30%,#000 0%,transparent 78%)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr 486px;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--emerald-2);margin-bottom:22px}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;box-shadow:0 0 0 4px rgba(176,138,62,.16)}
+h1{
+  font-family:var(--serif);font-weight:400;font-size:clamp(46px,4.5vw,68px);line-height:1.02;
+  letter-spacing:-.018em;margin:0 0 18px;max-width:640px
+}
+h1 em{font-style:italic;color:var(--emerald-2)}
+.hero p.lede{font-size:16.5px;line-height:1.65;color:var(--ink-2);max-width:480px;margin:0 0 30px;font-weight:300}
+
+/* search */
+.search{background:var(--surface);border:1px solid var(--hair);border-radius:20px;padding:10px;box-shadow:var(--shadow-m);position:relative;max-width:660px}
+.tabs{display:flex;gap:4px;padding:2px 4px 8px}
+.tab{font-size:13.5px;font-weight:600;color:var(--muted);padding:7px 16px;border-radius:999px;transition:.18s}
+.tab.on{background:var(--emerald-soft);color:var(--emerald)}
+.tab:hover:not(.on){background:#F6F3EB;color:var(--ink-2)}
+.sfields{display:grid;grid-template-columns:1.5fr 1fr 1fr auto;align-items:center;border:1px solid var(--hair);border-radius:14px;padding:4px;background:#FDFCF9}
+.sf{display:flex;flex-direction:column;justify-content:center;padding:9px 14px;border-right:1px solid var(--hair);cursor:pointer;border-radius:10px;transition:background .15s;min-width:0}
+.sf:last-of-type{border-right:0}
+.sf:hover{background:#F7F4ED}
+.sf label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:1px;display:block}
+.sf .val{font-size:14px;color:var(--ink);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sf .val.ph{color:#9AA29B;font-weight:400}
+.sf.loc{position:relative}
+.sf.loc .val{display:flex;align-items:center;gap:7px}
+.search-btn{border-radius:11px;padding:14px 22px;margin-left:4px}
+.chips{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:13px 6px 3px;font-size:12.5px;color:var(--muted)}
+.chips b{font-weight:600;color:var(--ink-2);letter-spacing:.02em}
+.chip{border:1px solid var(--hair);border-radius:999px;padding:4px 11px;color:var(--ink-2);transition:.16s;background:#fff}
+.chip:hover{border-color:var(--emerald);color:var(--emerald);background:var(--emerald-soft)}
+/* dropdown */
+.suggest{
+  position:absolute;left:0;right:0;top:calc(100% + 8px);background:#fff;border:1px solid var(--hair);
+  border-radius:14px;box-shadow:var(--shadow-l);padding:7px;display:none;z-index:20
+}
+.suggest.open{display:block}
+.sg{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:9px;font-size:13.5px}
+.sg:hover{background:var(--paper-2)}
+.sg .k{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--muted);margin-left:auto;text-transform:uppercase}
+.sg svg{color:var(--emerald-2);flex-shrink:0}
+
+.trust{display:flex;align-items:center;gap:22px;margin-top:24px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.trust b{color:var(--ink);font-weight:600;font-size:13px}
+.trust .dot{width:3px;height:3px;background:var(--hair-2);border-radius:50%}
+
+/* hero visual */
+.hero-visual{position:relative}
+.hero-img{width:100%;height:434px;object-fit:cover;border-radius:22px;box-shadow:var(--shadow-l)}
+.hero-visual .vtour{
+  position:absolute;top:16px;right:16px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+  border-radius:999px;padding:7px 13px;font-size:11.5px;font-weight:600;color:var(--emerald);
+  display:flex;align-items:center;gap:6px;box-shadow:var(--shadow-s)
+}
+.float-card{
+  position:absolute;left:-26px;bottom:-30px;background:#fff;border-radius:16px;padding:15px 17px;
+  box-shadow:var(--shadow-l);width:296px;border:1px solid rgba(229,223,208,.7);
+  display:block;text-decoration:none;color:inherit;transition:.24s ease
+}
+.float-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-l),0 10px 24px -14px rgba(12,74,60,.3)}
+.float-card .fc-top{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--emerald);margin-bottom:9px}
+.float-card h4{font-size:14.5px;margin:0 0 3px;font-weight:600;letter-spacing:-.01em}
+.float-card .price{font-family:var(--serif);font-size:21px;color:var(--emerald);margin-bottom:9px;letter-spacing:-.005em}
+.meta{display:flex;gap:13px;font-size:12px;color:var(--muted);align-items:center}
+.meta span{display:flex;align-items:center;gap:5px}
+.meta svg{opacity:.65}
+
+/* ---------- section base ---------- */
+section{padding:64px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,2.7vw,40px);letter-spacing:-.015em;margin:0;line-height:1.1}
+.sec-head .sub{font-size:14px;color:var(--muted);margin:8px 0 0;max-width:460px;font-weight:300}
+.link-more{font-size:13.5px;font-weight:600;color:var(--emerald);display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding-bottom:4px;border-bottom:1px solid rgba(12,74,60,.25);transition:.18s}
+.link-more:hover{gap:10px}
+
+/* intent cards */
+.intents{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.intent{
+  background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);padding:22px 20px 20px;
+  transition:.2s;position:relative;overflow:hidden
+}
+.intent:hover{border-color:var(--hair-2);box-shadow:var(--shadow-m);transform:translateY(-2px)}
+.intent .ic{width:38px;height:38px;border-radius:11px;background:var(--emerald-soft);display:flex;align-items:center;justify-content:center;color:var(--emerald);margin-bottom:16px}
+.intent h3{font-size:16px;margin:0 0 5px;font-weight:600;letter-spacing:-.01em}
+.intent p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.55}
+.intent .n{position:absolute;top:22px;right:20px;font-size:11px;color:var(--hair-2);font-weight:600;letter-spacing:.04em}
+
+/* listings */
+.lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:var(--r);overflow:hidden;transition:.24s ease;position:relative}
+.card:hover{box-shadow:var(--shadow-m);transform:translateY(-3px);border-color:var(--hair-2)}
+.card .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--paper-2)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.6,.3,1)}
+.card:hover .ph img{transform:scale(1.045)}
+.tags{position:absolute;top:12px;left:12px;display:flex;gap:6px}
+.tag{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 9px;border-radius:5px;background:rgba(255,255,255,.95);color:var(--ink);backdrop-filter:blur(6px)}
+.tag.verified{background:rgba(12,74,60,.94);color:#fff}
+.tag.auction{background:rgba(255,255,255,.95);color:#8A4B12}
+.tag.premium{background:linear-gradient(135deg,#C9A45C,#9C7A2E);color:#fff}
+.save{
+  position:absolute;top:10px;right:10px;z-index:3;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.94);
+  display:flex;align-items:center;justify-content:center;color:var(--ink-2);backdrop-filter:blur(6px);
+  transition:.18s;box-shadow:var(--shadow-s)
+}
+/* 整卡可点：覆盖层放在内容之上，收藏按钮单独抬高层级 */
+.card-link{position:absolute;inset:0;z-index:2;border-radius:inherit}
+.save:hover{transform:scale(1.08)}
+.save.on{color:#B23B32}
+.save.on svg{fill:#B23B32}
+.card .body{padding:15px 16px 16px}
+.card .price{font-size:17px;font-weight:700;letter-spacing:-.015em;margin-bottom:2px}
+.card .price small{font-size:11.5px;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:5px}
+.card .addr{font-size:13px;color:var(--ink-2);margin-bottom:9px;font-weight:400}
+.card .meta{padding-top:9px;border-top:1px solid var(--hair);justify-content:space-between}
+.card .agency{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--muted)}
+.card .agency .ava{width:19px;height:19px;border-radius:5px;background:var(--emerald-soft);color:var(--emerald);font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* filter row */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.f{font-size:12.5px;font-weight:500;color:var(--ink-2);border:1px solid var(--hair);border-radius:999px;padding:6px 13px;background:#fff;transition:.16s}
+.f.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.f:hover:not(.on){border-color:var(--ink-2)}
+
+/* areas */
+.areas{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.area{
+  background:linear-gradient(160deg,#0E5344 0%,#0A3C31 100%);color:#fff;border-radius:var(--r);
+  padding:24px 22px 20px;position:relative;overflow:hidden
+}
+.area:before{content:"";position:absolute;inset:0;background-image:var(--star);opacity:.07;pointer-events:none}
+.area .loc{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;position:relative}
+.area h3{font-family:var(--serif);font-size:24px;margin:0;font-weight:400;letter-spacing:-.01em}
+.area .flag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600}
+.area .med{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;margin-bottom:3px}
+.area .val{font-family:var(--serif);font-size:27px;letter-spacing:-.01em}
+.area .delta{font-size:12px;color:#9FD9C0;margin-left:8px;font-weight:600}
+.area .spark{margin:10px 0 14px;position:relative}
+.area .foot{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.66);position:relative;padding-top:13px;border-top:1px solid rgba(255,255,255,.14)}
+.area .foot a{color:#fff;font-weight:600;display:inline-flex;gap:5px;align-items:center}
+
+/* why */
+.why{background:var(--paper-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.why .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.why h3{font-family:var(--serif);font-size:21px;margin:16px 0 8px;font-weight:400}
+.why p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.7;font-weight:300}
+.why .ic{width:42px;height:42px;border-radius:12px;background:#fff;border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;color:var(--emerald)}
+
+/* agency cta */
+.cta{display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:start}
+.cta h2{max-width:520px}
+.cta ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.cta li{display:flex;gap:10px;font-size:13.5px;color:var(--ink-2);align-items:flex-start;font-weight:400}
+.cta li svg{color:var(--emerald-2);flex-shrink:0;margin-top:2px}
+.quote{margin:30px 0 0;padding:20px 22px;background:var(--paper-2);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;max-width:560px}
+.quote blockquote{margin:0 0 10px;font-family:var(--serif);font-size:17.5px;line-height:1.5;color:var(--ink);letter-spacing:-.005em}
+.quote figcaption{font-size:12px;color:var(--muted)}
+.quote figcaption b{color:var(--ink-2);font-weight:600}
+.form{background:#fff;border:1px solid var(--hair);border-radius:18px;padding:26px;box-shadow:var(--shadow-m)}
+.form h4{font-family:var(--serif);font-size:22px;margin:0 0 5px;font-weight:400}
+.form p.s{font-size:12.5px;color:var(--muted);margin:0 0 18px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.field input,.field select{
+  width:100%;border:1px solid var(--hair);border-radius:10px;padding:11px 13px;font-size:14px;
+  font-family:inherit;color:var(--ink);background:#FDFCF9;transition:.16s
+}
+.field input:focus,.field select:focus{outline:none;border-color:var(--emerald);background:#fff;box-shadow:0 0 0 3px rgba(12,74,60,.08)}
+.form .btn{width:100%;margin-top:6px}
+.form small{display:block;margin-top:11px;font-size:11px;color:var(--muted);text-align:center}
+
+/* footer */
+footer{background:#0B1512;color:rgba(255,255,255,.62);padding:56px 0 30px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer .brand .txt b{color:#fff}
+footer .brand .txt span{color:rgba(255,255,255,.4)}
+footer .about{margin-top:16px;font-size:12.5px;line-height:1.7;max-width:300px;color:rgba(255,255,255,.5)}
+footer h5{color:#fff;font-size:11px;letter-spacing:.13em;text-transform:uppercase;margin:0 0 14px;font-weight:700}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:13px}
+footer ul a:hover{color:#fff}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:11.5px;color:rgba(255,255,255,.38);gap:16px;flex-wrap:wrap}
+.fbot .langs{display:flex;gap:14px}
+.fbot .langs span{color:rgba(255,255,255,.6)}
+
+@media(max-width:1080px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{display:none}
+  .lgrid,.areas,.why .grid{grid-template-columns:repeat(2,1fr)}
+  .intents{grid-template-columns:repeat(2,1fr)}
+  .cta{grid-template-columns:1fr;gap:32px}
+  nav.links{display:none}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <rect x="4.5" y="4.5" width="31" height="31" stroke="#0C4A3C" stroke-width="1.4"/>
+        <rect x="4.5" y="4.5" width="31" height="31" stroke="#0C4A3C" stroke-width="1.4" transform="rotate(45 20 20)"/>
+        <rect x="11.5" y="11.5" width="17" height="17" stroke="#B08A3E" stroke-width="1.4" transform="rotate(45 20 20)"/>
+        <circle cx="20" cy="20" r="2.4" fill="#0C4A3C"/>
+      </svg>
+      <span class="txt"><b>WAHDA</b><span>REAL ESTATE</span></span>
+    </a>
+    <nav class="links">
+      <a href="#buy">Buy</a>
+      <a href="#rent">Rent</a>
+      <a href="#sell">Sell</a>
+      <a href="#areas">Areas</a>
+      <a href="#agents">Agents</a>
+      <a href="#insights">Insights</a>
+    </nav>
+    <div class="spacer"></div>
+    <div class="util">
+      <button class="icon-btn" aria-label="Saved properties">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+        Saved <span class="badge" id="saveCount">3</span>
+      </button>
+      <a href="#" class="signin">Sign in</a>
+      <a href="#list" class="btn btn-primary">List a property</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <svg class="pattern" width="100%" height="100%" aria-hidden="true">
+    <defs>
+      <pattern id="star8" width="72" height="72" patternUnits="userSpaceOnUse">
+        <g fill="none" stroke="#0C4A3C" stroke-width=".55" opacity=".16">
+          <rect x="18" y="18" width="36" height="36"/>
+          <rect x="18" y="18" width="36" height="36" transform="rotate(45 36 36)"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#star8)"/>
+  </svg>
+
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><i></i>Now live across Australia</span>
+      <h1>Find a home that<br>fits your <em>life</em>.</h1>
+      <p class="lede">Verified listings, honest prices and Sharia-compliant finance — from one place you can actually trust.</p>
+
+      <div class="search">
+        <div class="tabs">
+          <button class="tab on" data-tab="buy">Buy</button>
+          <button class="tab" data-tab="rent">Rent</button>
+        </div>
+        <div class="sfields">
+          <div class="sf loc" id="locField">
+            <label for="loc">Location</label>
+            <div class="val ph" id="locVal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0C4A3C" stroke-width="1.9"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+              Suburb, postcode or state
+            </div>
+            <div class="suggest" id="suggest">
+              <div class="sg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg> Coburg, VIC 3058 <span class="k">Suburb</span></div>
+              <div class="sg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.6"/></svg> Auburn, NSW 2144 <span class="k">Suburb</span></div>
+              <div class="sg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg> 3058 <span class="k">Postcode</span></div>
+            </div>
+          </div>
+          <div class="sf" id="typeField">
+            <label>Property type</label>
+            <div class="val">Any</div>
+          </div>
+          <div class="sf" id="priceField">
+            <label>Price</label>
+            <div class="val">Any</div>
+          </div>
+          <button class="btn btn-primary search-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            Search
+          </button>
+        </div>
+        <div class="chips">
+          <b>Popular</b>
+          <a class="chip" href="#">Coburg VIC</a>
+          <a class="chip" href="#">Auburn NSW</a>
+          <a class="chip" href="#">Dianella WA</a>
+          <a class="chip" href="#">Springfield QLD</a>
+        </div>
+      </div>
+
+      <div class="trust">
+        <span><b>12,480</b> verified listings</span><span class="dot"></span>
+        <span><b>860</b> agencies</span><span class="dot"></span>
+        <span><b>4,200</b> suburbs</span><span class="dot"></span>
+        <span>Updated <b>12 min</b> ago</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img class="hero-img" src="assets/wahda/web/hero.jpg" alt="Modern family home at dusk">
+      <div class="vtour">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+        3D tour
+      </div>
+      <a class="float-card" href="wahda-property.html?id=rosella" aria-label="View 14 Rosella Street, Armadale">
+        <div class="fc-top">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 13 4 4L19 7"/></svg>
+          Verified · 2 days on market
+        </div>
+        <h4>14 Rosella Street, Armadale</h4>
+        <div class="price">$1.85M – $2.05M</div>
+        <div class="meta">
+          <span>4 bd</span><span>3 ba</span><span>2 car</span><span>612 m²</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INTENTS -->
+<section id="buy">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Start where you are</h2>
+        <p class="sub">Four ways in. Every path ends with a verified listing and a real person to talk to.</p>
+      </div>
+    </div>
+    <div class="intents">
+      <a class="intent" href="#">
+        <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/></svg></div>
+        <span class="n">09,240</span>
+        <h3>Buy a home</h3>
+        <p>Houses, apartments and land with full price history.</p>
+      </a>
+      <a class="intent" href="#rent">
+        <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 7h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3"/><rect x="9" y="3" width="6" height="8" rx="1"/></svg></div>
+        <span class="n">03,180</span>
+        <h3>Rent</h3>
+        <p>Apply once, reuse your profile on every rental.</p>
+      </a>
+      <a class="intent" href="#sell">
+        <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></div>
+        <span class="n">860</span>
+        <h3>Sell with Wahda</h3>
+        <p>Get a free appraisal from a verified local agency.</p>
+      </a>
+      <a class="intent" href="#">
+        <div class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></div>
+        <span class="n">04,120</span>
+        <h3>Invest</h3>
+        <p>Yields, vacancy and suburb growth in one view.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Fresh to the market</h2>
+        <p class="sub">Hand-checked within the last 24 hours.</p>
+      </div>
+      <div class="filters">
+        <button class="f on">All</button>
+        <button class="f">New today</button>
+        <button class="f">Verified</button>
+        <button class="f">Auction</button>
+        <button class="f">Premium</button>
+      </div>
+    </div>
+
+    <div class="lgrid" id="grid">
+      <!-- 1 -->
+      <article class="card">
+        <a class="card-link" href="wahda-property.html?id=rosella" aria-label="View 14 Rosella Street, Armadale VIC 3143"></a>
+        <div class="ph">
+          <img src="assets/wahda/web/p1.jpg" alt="Contemporary four bedroom house">
+          <div class="tags"><span class="tag verified">Verified</span><span class="tag">New</span></div>
+          <button class="save on" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+        </div>
+        <div class="body">
+          <div class="price">$1,850,000<small>– $2,050,000</small></div>
+          <div class="addr">14 Rosella Street, Armadale VIC 3143</div>
+          <div class="meta"><span>4 bd</span><span>3 ba</span><span>2 car</span><span>612 m²</span></div>
+          <div class="meta" style="border-top:1px solid var(--hair);margin-top:11px;padding-top:11px;justify-content:space-between">
+            <span class="agency"><span class="ava">MC</span>Morrow &amp; Co.</span>
+            <span style="font-size:11px;color:var(--muted)">Inspect Sat 11:00</span>
+          </div>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="card">
+        <a class="card-link" href="wahda-property.html?id=lonsdale" aria-label="View 2703/18 Lonsdale Street, Melbourne VIC 3000"></a>
+        <div class="ph">
+          <img src="assets/wahda/web/p2.jpg" alt="Apartment living room with skyline view">
+          <div class="tags"><span class="tag">Apartment</span></div>
+          <button class="save" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+        </div>
+        <div class="body">
+          <div class="price">$780,000</div>
+          <div class="addr">2703/18 Lonsdale Street, Melbourne VIC 3000</div>
+          <div class="meta"><span>2 bd</span><span>2 ba</span><span>1 car</span><span>78 m²</span></div>
+          <div class="meta" style="border-top:1px solid var(--hair);margin-top:11px;padding-top:11px;justify-content:space-between">
+            <span class="agency"><span class="ava">HV</span>Haven Property</span>
+            <span style="font-size:11px;color:var(--muted)">Inspect Sun 10:30</span>
+          </div>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="card">
+        <a class="card-link" href="wahda-property.html?id=albion" aria-label="View 62 Albion Street, Surry Hills NSW 2010"></a>
+        <div class="ph">
+          <img src="assets/wahda/web/p3.jpg" alt="Victorian terrace townhouses">
+          <div class="tags"><span class="tag auction">Auction</span></div>
+          <button class="save" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+        </div>
+        <div class="body">
+          <div class="price">Auction<small>Sat 14 Nov, 11:00</small></div>
+          <div class="addr">62 Albion Street, Surry Hills NSW 2010</div>
+          <div class="meta"><span>3 bd</span><span>1 ba</span><span>1 car</span><span>186 m²</span></div>
+          <div class="meta" style="border-top:1px solid var(--hair);margin-top:11px;padding-top:11px;justify-content:space-between">
+            <span class="agency"><span class="ava">SB</span>Southbank Realty</span>
+            <span style="font-size:11px;color:var(--muted)">Guide $1.6M</span>
+          </div>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="card">
+        <a class="card-link" href="wahda-property.html?id=southbank" aria-label="View PH2, 9 Riverside Quay, Southbank VIC 3006"></a>
+        <div class="ph">
+          <img src="assets/wahda/web/p4.jpg" alt="Penthouse balcony at dusk">
+          <div class="tags"><span class="tag premium">Premium</span><span class="tag">Penthouse</span></div>
+          <button class="save" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+        </div>
+        <div class="body">
+          <div class="price">$3,200,000</div>
+          <div class="addr">PH2, 9 Riverside Quay, Southbank VIC 3006</div>
+          <div class="meta"><span>3 bd</span><span>3 ba</span><span>2 car</span><span>214 m²</span></div>
+          <div class="meta" style="border-top:1px solid var(--hair);margin-top:11px;padding-top:11px;justify-content:space-between">
+            <span class="agency"><span class="ava">AR</span>Ark Residences</span>
+            <span style="font-size:11px;color:var(--muted)">Private view</span>
+          </div>
+        </div>
+      </article>
+      <!-- 5 -->
+      <article class="card">
+        <a class="card-link" href="wahda-property.html?id=springfield" aria-label="View 18 Sinnathamby Boulevard, Springfield QLD 4300"></a>
+        <div class="ph">
+          <img src="assets/wahda/web/p5.jpg" alt="Contemporary villa with pool">
+          <div class="tags"><span class="tag verified">Verified</span></div>
+          <button class="save" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+        </div>
+        <div class="body">
+          <div class="price">$1,120,000</div>
+          <div class="addr">18 Sinnathamby Boulevard, Springfield QLD 4300</div>
+          <div class="meta"><span>4 bd</span><span>2 ba</span><span>2 car</span><span>540 m²</span></div>
+          <div class="meta" style="border-top:1px solid var(--hair);margin-top:11px;padding-top:11px;justify-content:space-between">
+            <span class="agency"><span class="ava">WQ</span>Wahda QLD</span>
+            <span style="font-size:11px;color:var(--muted)">Inspect Sat 09:00</span>
+          </div>
+        </div>
+      </article>
+      <!-- 6 -->
+      <article class="card">
+        <a class="card-link" href="wahda-property.html?id=pointcook" aria-label="View 38 Kestrel Drive, Point Cook VIC 3030"></a>
+        <div class="ph">
+          <img src="assets/wahda/web/p6.jpg" alt="Single storey family home">
+          <div class="tags"><span class="tag">New</span></div>
+          <button class="save" aria-label="Save"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8Z"/></svg></button>
+        </div>
+        <div class="body">
+          <div class="price">$720,000</div>
+          <div class="addr">38 Kestrel Drive, Point Cook VIC 3030</div>
+          <div class="meta"><span>3 bd</span><span>2 ba</span><span>2 car</span><span>448 m²</span></div>
+          <div class="meta" style="border-top:1px solid var(--hair);margin-top:11px;padding-top:11px;justify-content:space-between">
+            <span class="agency"><span class="ava">MC</span>Morrow &amp; Co.</span>
+            <span style="font-size:11px;color:var(--muted)">Inspect Sat 12:30</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:34px">
+      <a class="btn btn-ghost" href="#">View all 12,480 listings</a>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="why" id="areas" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Areas worth a look</h2>
+        <p class="sub">Median prices from the last 12 months of settled sales reported by agencies in our network. All figures in AUD.</p>
+      </div>
+      <a class="link-more" href="#">All 4,200 suburbs
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="areas">
+      <div class="area">
+        <div class="loc"><h3>Coburg</h3><span class="flag">VIC · 3058</span></div>
+        <div class="med">Median house price</div>
+        <div class="val">$1.15M<span class="delta">+3.4%</span></div>
+        <svg class="spark" width="100%" height="34" viewBox="0 0 300 34" preserveAspectRatio="none" fill="none">
+          <path d="M0 28 L36 24 L72 26 L108 18 L144 20 L180 13 L216 15 L252 9 L300 6" stroke="#9FD9C0" stroke-width="1.6"/>
+          <path d="M0 28 L36 24 L72 26 L108 18 L144 20 L180 13 L216 15 L252 9 L300 6 L300 34 L0 34 Z" fill="rgba(159,217,192,.12)"/>
+        </svg>
+        <div class="foot"><span>246 listings</span><a href="#">Explore <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+
+      <div class="area">
+        <div class="loc"><h3>Auburn</h3><span class="flag">NSW · 2144</span></div>
+        <div class="med">Median house price</div>
+        <div class="val">$1.38M<span class="delta">+5.8%</span></div>
+        <svg class="spark" width="100%" height="34" viewBox="0 0 300 34" preserveAspectRatio="none" fill="none">
+          <path d="M0 30 L36 27 L72 22 L108 24 L144 16 L180 17 L216 10 L252 8 L300 3" stroke="#9FD9C0" stroke-width="1.6"/>
+          <path d="M0 30 L36 27 L72 22 L108 24 L144 16 L180 17 L216 10 L252 8 L300 3 L300 34 L0 34 Z" fill="rgba(159,217,192,.12)"/>
+        </svg>
+        <div class="foot"><span>1,204 listings</span><a href="#">Explore <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+
+      <div class="area">
+        <div class="loc"><h3>Dianella</h3><span class="flag">WA · 6059</span></div>
+        <div class="med">Median house price</div>
+        <div class="val">$1.02M<span class="delta">+9.1%</span></div>
+        <svg class="spark" width="100%" height="34" viewBox="0 0 300 34" preserveAspectRatio="none" fill="none">
+          <path d="M0 22 L36 24 L72 20 L108 21 L144 18 L180 19 L216 14 L252 15 L300 11" stroke="#9FD9C0" stroke-width="1.6"/>
+          <path d="M0 22 L36 24 L72 20 L108 21 L144 18 L180 19 L216 14 L252 15 L300 11 L300 34 L0 34 Z" fill="rgba(159,217,192,.12)"/>
+        </svg>
+        <div class="foot"><span>318 listings</span><a href="#">Explore <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:38px">
+      <div>
+        <h2>Built for how you actually buy</h2>
+        <p class="sub">Three things the big portals still don't do for our community.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <div>
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Every listing checked by a human</h3>
+        <p>Agency licence, ownership and price all verified before a listing goes live. If it's on Wahda, someone has knocked on the door.</p>
+      </div>
+      <div>
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-7h6v7"/><circle cx="12" cy="10" r="1.6"/></svg></div>
+        <h3>Filters that match your life</h3>
+        <p>Search by distance to a mosque, prayer room at home, halal kitchen or single-sex school catchment — not just bedrooms.</p>
+      </div>
+      <div>
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h3M13 11h3M8 15h3M13 15h3"/></svg></div>
+        <h3>Finance without interest</h3>
+        <p>Compare Murabaha and Ijara home finance from partner banks side by side with conventional loans, in one calculator.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENCY CTA -->
+<section id="list">
+  <div class="wrap cta">
+    <div>
+      <span class="eyebrow"><i></i>For agencies</span>
+      <h2>The buyers are already here. Bring your listings.</h2>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 13 4 4L19 7"/></svg> Free until you close your first deal through us</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 13 4 4L19 7"/></svg> Listings live in under 4 minutes — no spreadsheet uploads</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 13 4 4L19 7"/></svg> Enquiries land in your inbox and your phone, never in a black hole</li>
+      </ul>
+      <figure class="quote">
+        <blockquote>“Sixty-one enquiries in the first ten days, and not one of them a tyre-kicker. We sold at auction above reserve.”</blockquote>
+        <figcaption><b>Mariam Haddad</b> — Principal, Morrow &amp; Co., Armadale</figcaption>
+      </figure>
+    </div>
+    <div class="form">
+      <h4>Request an invite</h4>
+      <p class="s">Onboarding 5 agencies per city. We'll call you within two working days.</p>
+      <div class="field"><label for="agency">Agency name</label><input id="agency" type="text" placeholder="Morrow & Co."></div>
+      <div class="field"><label for="email">Work email</label><input id="email" type="email" placeholder="you@agency.com.au"></div>
+      <div class="field"><label for="city">Primary market</label>
+        <select id="city">
+          <option>Melbourne, VIC</option>
+          <option>Sydney, NSW</option>
+          <option>Brisbane, QLD</option>
+          <option>Perth, WA</option>
+          <option>Adelaide, SA</option>
+          <option>Canberra, ACT</option>
+          <option>Hobart, TAS</option>
+          <option>Darwin, NT</option>
+          <option>Regional / other</option>
+        </select>
+      </div>
+      <button class="btn btn-primary">Request access</button>
+      <small>We never share your details with other agencies.</small>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="4.5" y="4.5" width="31" height="31" stroke="rgba(255,255,255,.8)" stroke-width="1.4"/>
+            <rect x="4.5" y="4.5" width="31" height="31" stroke="rgba(255,255,255,.8)" stroke-width="1.4" transform="rotate(45 20 20)"/>
+            <rect x="11.5" y="11.5" width="17" height="17" stroke="#B08A3E" stroke-width="1.4" transform="rotate(45 20 20)"/>
+            <circle cx="20" cy="20" r="2.4" fill="#fff"/>
+          </svg>
+          <span class="txt"><b>WAHDA</b><span>REAL ESTATE</span></span>
+        </div>
+        <p class="about">An Australian property marketplace, built for a community the big portals overlook — verified listings, honest prices, and finance that respects how you live.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul><li><a href="#">Buy</a></li><li><a href="#">Rent</a></li><li><a href="#">New homes</a></li><li><a href="#">Areas</a></li><li><a href="#">Mosques &amp; schools</a></li></ul>
+      </div>
+      <div>
+        <h5>For agencies</h5>
+        <ul><li><a href="#">List a property</a></li><li><a href="#">Pricing</a></li><li><a href="#">Agency login</a></li><li><a href="#">Listing standards</a></li></ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul><li><a href="#">About Wahda</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li><li><a href="#">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 Wahda Real Estate Pty Ltd · A WANEL CAPITAL company</span>
+      <div class="langs"><span>VIC</span><span>NSW</span><span>QLD</span><span>WA</span><span>SA</span><span>ACT</span><span>TAS</span><span>NT</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // sticky header shadow
+  var hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', function(){
+    hdr.classList.toggle('stuck', window.scrollY > 8);
+  }, {passive:true});
+
+  // Buy / Rent tabs
+  var tabs = document.querySelectorAll('.tab');
+  var locVal = document.getElementById('locVal');
+  var priceField = document.getElementById('priceField');
+  var priceVal = priceField.querySelector('.val');
+  var priceLabel = priceField.querySelector('label');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.classList.remove('on'); });
+      t.classList.add('on');
+      var rent = t.dataset.tab === 'rent';
+      priceLabel.textContent = rent ? 'Rent per week' : 'Price';
+      priceVal.textContent = 'Any';
+    });
+  });
+
+  // location suggestion
+  var field = document.getElementById('locField');
+  var box = document.getElementById('suggest');
+  field.addEventListener('click', function(e){
+    e.stopPropagation();
+    box.classList.add('open');
+  });
+  box.addEventListener('click', function(e){
+    var row = e.target.closest('.sg');
+    if(!row) return;
+    e.stopPropagation();
+    locVal.classList.remove('ph');
+    locVal.lastChild.textContent = ' ' + row.textContent.replace(/Suburb|Postcode/g,'').trim();
+    box.classList.remove('open');
+  });
+  document.addEventListener('click', function(){ box.classList.remove('open'); });
+
+  // save toggles
+  var saved = 3;
+  var counter = document.getElementById('saveCount');
+  document.querySelectorAll('.save').forEach(function(b){
+    b.addEventListener('click', function(e){
+      e.preventDefault();
+      b.classList.toggle('on');
+      saved += b.classList.contains('on') ? 1 : -1;
+      counter.textContent = Math.max(0, saved);
+    });
+  });
+
+  // filter chips
+  document.querySelectorAll('.f').forEach(function(f){
+    f.addEventListener('click', function(){
+      document.querySelectorAll('.f').forEach(function(x){ x.classList.remove('on'); });
+      f.classList.add('on');
+    });
+  });
+})();
+</script>
+</body>
+</html>
