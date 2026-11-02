@@ -32,7 +32,7 @@
       saleChip: 'Auction · Saturday 14 November, 11:00 am — onsite',
       subWhen: 'Auction Sat 14 Nov, 11:00 am',
       soi: 'Statement of Information (PDF)',
-      tags: [{ t: 'Verified', c: 'verified' }, { t: 'Auction', c: 'auction' }],
+      tags: [{ t: 'Verified', c: 'verified' }],
       facts: [
         ['Property type', 'House'], ['Land size', '612 m²'], ['Floor area', '262 m² (28 sq)'],
         ['Year built', '2019'], ['Council rates', '$3,180 p.a.'], ['Zoning', 'Neighbourhood Residential']
@@ -98,7 +98,7 @@
       saleChip: 'For sale · Private treaty',
       subWhen: 'Private treaty',
       soi: 'Statement of Information (PDF)',
-      tags: [{ t: 'Apartment', c: '' }],
+      tags: [],
       facts: [
         ['Property type', 'Apartment'], ['Internal area', '78 m²'], ['Level', '27 of 38'],
         ['Year built', '2021'], ['Council rates', '$1,420 p.a.'], ['Owners corp', '$4,180 p.a.']
@@ -161,7 +161,7 @@
       saleChip: 'Auction · Saturday 14 November, 11:00 am — onsite',
       subWhen: 'Auction Sat 14 Nov, 11:00 am',
       soi: 'Contract of Sale &amp; building report',
-      tags: [{ t: 'Auction', c: 'auction' }],
+      tags: [],
       facts: [
         ['Property type', 'Terrace'], ['Land size', '186 m²'], ['Floor area', '148 m² (16 sq)'],
         ['Year built', 'c.1890'], ['Council rates', '$1,980 p.a.'], ['Zoning', 'R1 General Residential']
@@ -227,7 +227,7 @@
       saleChip: 'Private sale · Expressions of interest close 26 November',
       subWhen: 'EOI closes 26 Nov',
       soi: 'Statement of Information (PDF)',
-      tags: [{ t: 'Premium', c: 'premium' }, { t: 'Penthouse', c: '' }],
+      tags: [{ t: 'Premium', c: 'premium' }],
       facts: [
         ['Property type', 'Penthouse'], ['Internal area', '214 m²'], ['Terrace', '46 m²'],
         ['Year built', '2016'], ['Council rates', '$3,620 p.a.'], ['Owners corp', '$12,840 p.a.']
@@ -665,9 +665,7 @@
         grid.innerHTML = P.similar.map(function (id) {
           var o = DATA[id];
           /* 相似卡片只放短价，价格区间用 M 记法，避免撑高卡片 */
-          var priceHtml = /auction/i.test(o.saleChip) && !/\$/.test(o.price)
-            ? 'Auction<small>' + o.subWhen.replace('Auction ', '') + '</small>'
-            : o.priceMl;
+          var priceHtml = o.priceMl;   /* 价格位永远放价格，拍卖时间不占位 */
           return '<a class="card" href="wahda-property.html?id=' + id + '">' +
             '<div class="ph"><img src="' + A + id + '/web/cover.jpg" alt="' + o.short + ', ' + o.suburb + '"></div>' +
             '<div class="body">' +
