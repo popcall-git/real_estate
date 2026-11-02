@@ -11,20 +11,27 @@
 <meta property="og:description" content="Verified listings, honest prices and Sharia-compliant finance. Now across Australia.">
 <meta property="og:image" content="assets/wahda/web/hero.jpg">
 <meta name="theme-color" content="#0C4A3C">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- 字体全部自托管：同域直取，不依赖 Google Fonts 的网络状况 -->
+<link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jakarta.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* ==========================================================================
    字族分工规则（改版时请遵守，勿随意交叉）
    1) 衬线 --serif 只用于「人读的句子与价格」：标题、社区名、价格、引语；
       最小字号 16px。低于 16px 一律改用 --sans。
-      原因：Instrument Serif 只有 400 一个字重，且为高对比展示体，
-      14px 及以下发丝衬线不足 0.5px，非 Retina 屏会掉墨。
+      原因：Newsreader 是编辑型高对比衬线，14px 及以下细笔画不足 0.5px，
+      非 Retina 屏会掉墨；且只有 400-500 两档，撑不起 UI 层级。
    2) 无衬线 --sans 用于「人点的控件与被扫的参数」：按钮、筛选、标签、
       地址、2 bd / 2 ba / 145 m² 这类参数、表单。
    3) 需要更强烈的层级时，加字号或字距，不要给衬线加字重（该字体没有粗体）。
    ========================================================================== */
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:400 500;font-display:swap;
+  src:url('assets/fonts/newsreader.woff2') format('woff2')}
+@font-face{font-family:'Newsreader';font-style:italic;font-weight:400 500;font-display:swap;
+  src:url('assets/fonts/newsreader-italic.woff2') format('woff2')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:300 700;font-display:swap;
+  src:url('assets/fonts/jakarta.woff2') format('woff2')}
 :root{
   --paper:#FBF8F2;
   --paper-2:#F4EFE4;
@@ -39,7 +46,7 @@
   --emerald-soft:#E7F0EA;
   --gold:#B08A3E;
   --gold-soft:#F3E9D2;
-  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --serif:Newsreader,Georgia,"Times New Roman",serif;
   --sans:"Plus Jakarta Sans",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --r:16px;
   --shadow-s:0 1px 2px rgba(18,26,22,.05),0 2px 8px rgba(18,26,22,.04);
